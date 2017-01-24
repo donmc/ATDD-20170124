@@ -7,34 +7,23 @@ import cucumber.api.java.en.When;
 
 public class RegisterUser {
 
-	@When("^user register with userid \"([^\"]*)\", email \"([^\"]*)\"$")
-	public void user_register_with_userid_email(String arg1, String arg2) throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
-	}
+@When("^user register with userid \"([^\"]*)\", email \"([^\"]*)\"$")
+public void user_register_with_userid_email(String arg1, String arg2) throws Throwable {
+    // Write code here that turns the phrase above into concrete actions
+    throw new PendingException();
+}
 
-	@Then("^\"([^\"]*)\" should be saved$")
-	public void should_be_saved(String arg1) throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
-	}
+@Then("^\"([^\"]*)\" should be saved$")
+public void should_be_saved(String arg1) throws Throwable {
+    // Write code here that turns the phrase above into concrete actions
+    throw new PendingException();
+}
 
-	@Given("^user register with userid \"([^\"]*)\", emailId \"([^\"]*)\"$")
-	public void user_register_with_userid_emailId(String arg1, String arg2) throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
-	}
 
-	@Then("^error \"([^\"]*)\" is displayed$")
-	public void error_is_displayed(String arg1) throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
-	}
-
-	@When("^user register with user \"([^\"]*)\", emailId \"([^\"]*)\"$")
-	public void user_register_with_user_emailId(String arg1, String arg2) throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
-	}
+@Then("^error \"([^\"]*)\" is displayed$")
+public void error_is_displayed(String arg1) throws Throwable {
+    // Write code here that turns the phrase above into concrete actions
+    throw new PendingException();
+}
 
 }
