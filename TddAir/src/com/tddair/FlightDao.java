@@ -7,7 +7,7 @@ public class FlightDao {
 
 	private Map<String, Flight> flights = new HashMap<>();
 	
-	public FlightDao() {
+	public FlightDao() { 
 		addFlight("DFW", "ORD", 924, "AA", 242);
 		addFlight("LGA", "CDG", 3620, "AF", 38);
 		addFlight("LAX", "SYD", 7490, "QF", 191);
