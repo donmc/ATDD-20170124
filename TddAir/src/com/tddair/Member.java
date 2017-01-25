@@ -27,7 +27,19 @@ public class Member {
 	}
 
 	public Object getStatus() {
-		return MemberManagement.RED;
+		String status = MemberManagement.RED;
+		if (ytdMiles > 75000) 
+			status = MemberManagement.GOLD;
+		else if (ytdMiles > 50000)
+			status = MemberManagement.BLUE;
+		else if (ytdMiles > 50000)
+			status = MemberManagement.GREEN;
+		return status;
+	}
+
+	public void setYtdMiles(int ytdMiles) {
+		this.ytdMiles = ytdMiles;
+		
 	}
 
 }

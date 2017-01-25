@@ -9,6 +9,12 @@ public class MemberManagement {
 
 	public static final String RED = "Red";
 
+	public static final String GOLD = "Gold";
+	
+	public static final String BLUE = "Blue";
+	
+	public static final String GREEN = "Green";
+
 	public MemberManagement() {
 		createMember("Addy", 1, "aby@gmail.com");
 		createMember("Danny", 2, "danny@gmail.com");
