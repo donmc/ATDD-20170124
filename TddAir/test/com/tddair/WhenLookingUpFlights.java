@@ -8,11 +8,11 @@ import org.junit.Test;
 public class WhenLookingUpFlights {
 
 	private Flight flight;
-
+ 
 	@Before
 	public void setup() {
 		// setup
-		TddAirApplication app = new TddAirApplication();
+		TddAirApplication app = new TddAirApplication(new FakeFlightDao(), new FakeMemberDao());
 		app.addFlight("ATL", "LAX", 2000, "AA", 23);
 
 		// exercise

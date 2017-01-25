@@ -6,7 +6,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class AddFlightSteps {
-	TddAirApplication app = new TddAirApplication();
+	TddAirApplication app = new TddAirApplication(new RealFlightDao(), new RealMemberDao()); 
 	private String message;
 	
 	@When("^adding a flight with origin \"([^\"]*)\", destination \"([^\"]*)\", miles (\\d+), airline \"([^\"]*)\", and number (\\d+)$")

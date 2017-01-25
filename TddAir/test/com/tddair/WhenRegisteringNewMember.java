@@ -16,14 +16,24 @@ public class WhenRegisteringNewMember {
 		String userId = "donmc";
 		String email = "don@improving.com";
 		
-		app = new TddAirApplication();
+		app = new TddAirApplication(new FakeFlightDao(), new FakeMemberDao());
 		app.registerMember(userId, email);
 		member = app.findMemberById(userId);
-	}
+	} 
 	
 	@Test
 	public void shouldFindByUserId() {
 		assertNotNull(member);
+	}
+	
+	@Test 
+	public void shouldRegisterMultipleMembers() {
+		app.registerMember("bob", "bob@bobco.com");
+
+		Member member2 = app.findMemberById("bob");
+		Member member1 = app.findMemberById("donmc");
+		assertEquals("bob", member2.getUserId());
+		assertEquals("donmc", member1.getUserId());
 	}
 	
 	@Test
@@ -36,19 +46,19 @@ public class WhenRegisteringNewMember {
 		assertEquals("don@improving.com", member.getEmail());
 	}
 	
-	@Ignore @Test
+	@Test
 	public void shouldHaveRedStatus() {
-		fail("Not yet implemented");
+		assertEquals(Status.Red, member.getStatus());
 	}
 	
-	@Ignore @Test
+	@Test
 	public void shouldHave0YtdMiles() {
-		fail("Not yet implemented");
+		assertEquals(0, member.getYtdMiles());
 	}
 	
-	@Ignore @Test
+	@Test
 	public void shouldHave10000BalanceMiles() {
-		fail("Not yet implemented");
+		assertEquals(10000, member.getBalanceMiles());
 	}
 
 }

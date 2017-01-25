@@ -4,10 +4,16 @@ public class Member {
 
 	private String id;
 	private String email;
+	private Status status;
+	private int ytdMiles;
+	private int balanceMiles;
 
 	public Member(String userId, String email) {
 		this.id = userId;
 		this.email = email;
+		this.status = Status.Red;
+		this.ytdMiles = 0;
+		this.balanceMiles = 10000;
 	}
 
 	public String getUserId() {
@@ -16,6 +22,18 @@ public class Member {
 
 	public String getEmail() {
 		return email;
+	}
+
+	public Status getStatus() {
+		return status;
+	}
+
+	public int getYtdMiles() {
+		return ytdMiles;
+	}
+
+	public int getBalanceMiles() {
+		return balanceMiles;
 	}
 
 }
