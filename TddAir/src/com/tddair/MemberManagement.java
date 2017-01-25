@@ -3,6 +3,8 @@ package com.tddair;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.management.RuntimeErrorException;
+
 public class MemberManagement {
 
 	private Map<String, Member> members = new HashMap<>();
@@ -20,6 +22,9 @@ public class MemberManagement {
 
 	public void createMember(String name, int id, String emailId) {
 		if (findMember(name) == null) {
+			if (!emailId.contains("@")){
+				throw new RuntimeException("Invalid EmailId");
+			}
 			Member member = new Member(name, id, emailId);
 			members.put(member.getName(), member);
 		} else

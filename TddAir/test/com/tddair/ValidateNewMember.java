@@ -26,5 +26,16 @@ public class ValidateNewMember {
 		}
 
 	}
+	
+	@Test
+	public void testValidEmailThrowsException() {
+		try {
+			mm.createMember("do", 1, "don-improving.com");
+			fail();
+		} catch (Exception ex) {
+			assertEquals("Invalid EmailId", ex.getMessage());
+		}
+
+	}
 
 }
