@@ -26,20 +26,20 @@ public class Member {
 		setBalanceMiles(10000);
 	}
 
-	public Object getStatus() {
-		String status = MemberManagement.RED;
-		if (ytdMiles > 75000) 
-			status = MemberManagement.GOLD;
+	public Status getStatus() {
+		Status status = Status.RED;
+		if (ytdMiles > 75000)
+			status = Status.GOLD;
 		else if (ytdMiles > 50000)
-			status = MemberManagement.BLUE;
+			status = Status.BLUE;
 		else if (ytdMiles > 25000)
-			status = MemberManagement.GREEN;
+			status = Status.Green;
 		return status;
 	}
 
 	public void setYtdMiles(int ytdMiles) {
 		this.ytdMiles = ytdMiles;
-		
+
 	}
 
 	public int getYtdMiles() {
@@ -53,7 +53,5 @@ public class Member {
 	public void setBalanceMiles(int balanceMiles) {
 		this.balanceMiles = balanceMiles;
 	}
-	
-	
 
 }

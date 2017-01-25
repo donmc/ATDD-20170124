@@ -1,14 +1,11 @@
 package com.tddair;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-
 import org.junit.Before;
 import org.junit.Test;
 
 public class ValidateNewMember {
 
-	MemberManagement mm = new MemberManagement();
+	MemberManagement mm = new MemberManagement(new FakeMemberDao());
 
 	@Before
 	public void setup() {
@@ -16,25 +13,14 @@ public class ValidateNewMember {
 
 	}
 
-	@Test
+	@Test(expected = DuplicateMemberException.class)
 	public void testDuplicateMemberThrowsException() {
-		try {
-			mm.createMember("donmc", 1, "donmc@improving.com");
-			fail();
-		} catch (Exception ex) {
-			assertEquals("Duplicate Member", ex.getMessage());
-		}
-
+		mm.createMember("donmc", 1, "donmc@improving.com");
 	}
-	
-	@Test
+
+	@Test(expected = IllegalArgumentException.class)
 	public void testValidEmailThrowsException() {
-		try {
-			mm.createMember("do", 1, "don-improving.com");
-			fail();
-		} catch (Exception ex) {
-			assertEquals("Invalid EmailId", ex.getMessage());
-		}
+		mm.createMember("do", 1, "don-improving.com");
 
 	}
 

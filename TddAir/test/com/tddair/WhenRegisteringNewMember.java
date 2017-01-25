@@ -13,7 +13,7 @@ public class WhenRegisteringNewMember {
 
 	@Before
 	public void setup() {
-		mm = new MemberManagement();
+		mm = new MemberManagement(new FakeMemberDao());
 		mm.createMember("prakash", 6, "prakash.malluri@realpage.com");
 
 		member = mm.findMember("prakash");
@@ -27,14 +27,14 @@ public class WhenRegisteringNewMember {
 
 	@Test
 	public void testIfNewMemberHasRedStatus() {
-		assertEquals(MemberManagement.RED, member.getStatus());
+		assertEquals(Status.RED, member.getStatus());
 	}
-	
+
 	@Test
 	public void testIfYtdMilesIsZero() {
 		assertEquals(0, member.getYtdMiles());
 	}
-	
+
 	@Test
 	public void testIfBalanceMiles() {
 		assertEquals(10000, member.getBalanceMiles());

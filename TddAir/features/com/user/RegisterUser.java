@@ -3,6 +3,7 @@ package com.user;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+import com.tddair.FakeMemberDao;
 import com.tddair.MemberManagement;
 
 import cucumber.api.java.en.Then;
@@ -10,7 +11,7 @@ import cucumber.api.java.en.When;
 
 public class RegisterUser {
 
-	MemberManagement app = new MemberManagement();
+	MemberManagement app = new MemberManagement(new FakeMemberDao());
 
 	@When("^user register with userid \"([^\"]*)\", email \"([^\"]*)\"$")
 	public void user_register_with_userid_email(String userId, String emailId) throws Throwable {
