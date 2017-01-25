@@ -52,5 +52,10 @@ public class WhenRegisteringNewMember {
 	public void testDuplicateMember() {
 		app.addMember("1", "prakash.malluri@realpage.com");
 	}
+	
+	@Test(expected=InvalidEmailException.class) 
+	public void testInvalidEmail() {
+		app.setEmail("1", "prakash");
+	}
 
 }

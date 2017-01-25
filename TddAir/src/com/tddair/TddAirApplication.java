@@ -24,4 +24,9 @@ public class TddAirApplication {
 	public Member findById(String id) {
 		return members.get(id);
 	}
+
+	public void setEmail(String memberId, String email) {
+		Email.validateEmail(email);		
+		
+	}
 }
