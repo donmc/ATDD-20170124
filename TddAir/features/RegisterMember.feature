@@ -1,12 +1,7 @@
 Feature: Register new member
-Scenario: User registers with valid userId and Email
-When user registers with id "donmc", email "don@improving.com"
-Then user with id "donmc" should be saved
-
-Scenario: User tries to register with preexisting userId
-When  user registers with preexistingId "donmc",  email "don@improving.com"
-Then Error "Duplicate Id" is displayed
-
-Scenario: User enters invalid email
-When user enters invalid Email "abcd"
-Then Error "Invalid Email" is displayed
+Scenario: User registers with valid Id and Email
+When user registers with id "1", email "prakash.malluri@realpage.com"
+Then user with id "1" should be saved
+And user has "Red" status
+And user has 0 ytdMiles
+And user has 10000 balance miles
