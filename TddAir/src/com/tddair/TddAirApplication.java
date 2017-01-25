@@ -4,7 +4,7 @@ public class TddAirApplication {
 
 	private FlightDao flights;
 	private MemberDao members;
-	
+
 	public TddAirApplication(FlightDao flightDao, MemberDao memberDao) {
 		flights = flightDao;
 		members = memberDao;
@@ -32,5 +32,11 @@ public class TddAirApplication {
 
 	public Member findMemberById(String userId) {
 		return members.findMemberById(userId);
+	}
+
+	public void completeFlight(String userId, String flightNo) {
+		Flight flight = flights.getFlightBy(flightNo);
+		Member member = members.findMemberById(userId);
+		member.completeFlight(flight);
 	}
 }

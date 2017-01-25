@@ -9,7 +9,7 @@ public class FakeFlightDao implements FlightDao {
 	
 	public FakeFlightDao() { 
 		addFlight("DFW", "ORD", 924, "AA", 242);
-		addFlight("LGA", "CDG", 3620, "AF", 38);
+		addFlight("LGA", "CDG", 3620, "AB", 38);
 		addFlight("LAX", "SYD", 7490, "QF", 191);
 	}
 	
