@@ -16,4 +16,13 @@ public class TddAirApplication {
 	public Flight findFlightByNumber(String flightNumber) {
 		return flights.getFlightBy(flightNumber);
 	}
+
+	public void registerMember(String userId, String email) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public Member findMemberById(String userId) {
+		return new Member(userId); 
+	}
 }
