@@ -1,6 +1,7 @@
 package com.tddair;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -19,7 +20,7 @@ public class ValidateNewMember {
 	public void testDuplicateMemberThrowsException() {
 		try {
 			mm.createMember("donmc", 1, "donmc@improving.com");
-			// fail();
+			fail();
 		} catch (Exception ex) {
 			assertEquals("Duplicate Member", ex.getMessage());
 		}
