@@ -10,21 +10,20 @@ public class MemberManagement {
 	public static final String RED = "Red";
 
 	public static final String GOLD = "Gold";
-	
+
 	public static final String BLUE = "Blue";
-	
+
 	public static final String GREEN = "Green";
 
 	public MemberManagement() {
-		createMember("Addy", 1, "aby@gmail.com");
-		createMember("Danny", 2, "danny@gmail.com");
-		createMember("Angel", 3, "angel@gmail.com");
-		createMember("donmc", 4, "donmc@improving.com");
 	}
 
 	public void createMember(String name, int id, String emailId) {
-		Member member = new Member(name, id, emailId);
-		members.put(member.getName(), member);
+		if (findMember(name) == null) {
+			Member member = new Member(name, id, emailId);
+			members.put(member.getName(), member);
+		} else
+			throw new RuntimeException("Duplicate Member");
 	}
 
 	public Member findMember(String name) {
