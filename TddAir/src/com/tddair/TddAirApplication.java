@@ -27,7 +27,13 @@ public class TddAirApplication {
 
 	public void addFlightToMember(String memberName, String flightNumber) {
 		Flight flight = findFlight(flightNumber);
-		memberDao.addFlightToMember(memberName, flight.getMileage());
+		Member member = findMember(memberName);
+		member.addFlightToMember(flight);
 
+	}
+
+	public void purchaseSeatUpgrade(String memberName, int qty) {
+		Member member = findMember(memberName);
+		member.purchaseSeatUpgrade(qty);
 	}
 }

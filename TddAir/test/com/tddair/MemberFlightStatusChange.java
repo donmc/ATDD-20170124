@@ -7,10 +7,12 @@ import org.junit.Test;
 
 public class MemberFlightStatusChange {
 
-	TddAirApplication app = new TddAirApplication(new FakeMemberDao());
+	TddAirApplication app = null;
 
 	@Before
 	public void setup() {
+		app = new TddAirApplication(new FakeMemberDao());
+
 		app.addFlight("DFW", "SFO", 25000, "AA", 12);
 		app.addFlight("DFW", "LAX", 20000, "AA", 13);
 		app.addFlight("DFW", "MNP", 15000, "AA", 14);
@@ -38,14 +40,17 @@ public class MemberFlightStatusChange {
 	@Test
 	public void shouldMemberHaveBlueStatus() {
 		app.addFlightToMember("nitin", "AA12");
+		app.addFlightToMember("nitin", "AA12");
 		Member member = app.findMember("nitin");
-		assertEquals(Status.Green, member.getStatus());
+		assertEquals(Status.BLUE, member.getStatus());
 	}
 
 	@Test
 	public void shouldMemberHaveGoldStatus() {
 		app.addFlightToMember("nitin", "AA12");
+		app.addFlightToMember("nitin", "AA12");
+		app.addFlightToMember("nitin", "AA12");
 		Member member = app.findMember("nitin");
-		assertEquals(Status.Green, member.getStatus());
+		assertEquals(Status.GOLD, member.getStatus());
 	}
 }
