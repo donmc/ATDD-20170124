@@ -16,6 +16,7 @@ public class Member {
 	private String emailId;
 	private int ytdMiles;
 	private int balanceMiles;
+	private Status status;
 
 	public Member(String name, int id, String emailId) {
 		super();
@@ -24,17 +25,13 @@ public class Member {
 		this.emailId = emailId;
 		ytdMiles = 0;
 		setBalanceMiles(10000);
+		status = Status.getStatus(0);
+
 	}
 
 	public Status getStatus() {
-		Status status = Status.RED;
-		if (ytdMiles > 75000)
-			status = Status.GOLD;
-		else if (ytdMiles > 50000)
-			status = Status.BLUE;
-		else if (ytdMiles > 25000)
-			status = Status.Green;
-		return status;
+
+		return this.status;
 	}
 
 	public void setYtdMiles(int ytdMiles) {
@@ -52,6 +49,11 @@ public class Member {
 
 	public void setBalanceMiles(int balanceMiles) {
 		this.balanceMiles = balanceMiles;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
+
 	}
 
 }

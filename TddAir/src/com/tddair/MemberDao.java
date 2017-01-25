@@ -6,4 +6,6 @@ public interface MemberDao {
 
 	Member findMember(String name);
 
+	void addFlightToMember(String memberName, int flight);
+
 }

@@ -37,4 +37,12 @@ public class FakeMemberDao implements MemberDao {
 		return members.get(name);
 	}
 
+	@Override
+	public void addFlightToMember(String memberName, int miles) {
+		Member member = findMember(memberName);
+		member.setBalanceMiles(member.getBalanceMiles() + miles);
+		member.setYtdMiles(member.getYtdMiles() + miles);
+		member.setStatus(Status.getStatus(member.getYtdMiles()));
+	}
+
 }

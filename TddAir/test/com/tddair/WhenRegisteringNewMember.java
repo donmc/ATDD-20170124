@@ -8,15 +8,15 @@ import org.junit.Test;
 
 public class WhenRegisteringNewMember {
 
-	MemberManagement mm = null;
+	TddAirApplication app = null;
 	Member member = null;
 
 	@Before
 	public void setup() {
-		mm = new MemberManagement(new FakeMemberDao());
-		mm.createMember("prakash", 6, "prakash.malluri@realpage.com");
+		app = new TddAirApplication(new FakeMemberDao());
+		app.createMember("prakash", 6, "prakash.malluri@realpage.com");
 
-		member = mm.findMember("prakash");
+		member = app.findMember("prakash");
 
 	}
 
