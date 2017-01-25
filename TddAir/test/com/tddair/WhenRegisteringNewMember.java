@@ -27,8 +27,17 @@ public class WhenRegisteringNewMember {
 
 	@Test
 	public void testIfNewMemberHasRedStatus() {
-		member.setYtdMiles(30000);
-		assertEquals(MemberManagement.GOLD, member.getStatus());
+		assertEquals(MemberManagement.RED, member.getStatus());
+	}
+	
+	@Test
+	public void testIfYtdMilesIsZero() {
+		assertEquals(0, member.getYtdMiles());
+	}
+	
+	@Test
+	public void testIfBalanceMiles() {
+		assertEquals(10000, member.getBalanceMiles());
 	}
 
 }

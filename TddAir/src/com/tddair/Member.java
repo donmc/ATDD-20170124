@@ -23,7 +23,7 @@ public class Member {
 		this.id = id;
 		this.emailId = emailId;
 		ytdMiles = 0;
-		balanceMiles = 10000;
+		setBalanceMiles(10000);
 	}
 
 	public Object getStatus() {
@@ -41,5 +41,19 @@ public class Member {
 		this.ytdMiles = ytdMiles;
 		
 	}
+
+	public int getYtdMiles() {
+		return this.ytdMiles;
+	}
+
+	public int getBalanceMiles() {
+		return balanceMiles;
+	}
+
+	public void setBalanceMiles(int balanceMiles) {
+		this.balanceMiles = balanceMiles;
+	}
+	
+	
 
 }
