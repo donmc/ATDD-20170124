@@ -1,16 +1,21 @@
 package com.user;
 
+import static org.junit.Assert.assertNotNull;
+
+import com.tddair.MemberManagement;
+
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class RegisterUser {
+	
+	MemberManagement app = new MemberManagement();
 
 @When("^user register with userid \"([^\"]*)\", email \"([^\"]*)\"$")
-public void user_register_with_userid_email(String arg1, String arg2) throws Throwable {
-    // Write code here that turns the phrase above into concrete actions
-    throw new PendingException();
+public void user_register_with_userid_email(String userId, String emailId) throws Throwable {
+	assertNotNull(app.findMember(userId));
 }
 
 @Then("^\"([^\"]*)\" should be saved$")
