@@ -32,7 +32,7 @@ public class Member {
 			status = MemberManagement.GOLD;
 		else if (ytdMiles > 50000)
 			status = MemberManagement.BLUE;
-		else if (ytdMiles > 50000)
+		else if (ytdMiles > 25000)
 			status = MemberManagement.GREEN;
 		return status;
 	}
