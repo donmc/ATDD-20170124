@@ -5,21 +5,17 @@ import java.util.Map;
 
 import javax.management.RuntimeErrorException;
 
-public class MemberManagement {
+public class FakeMemberDao implements MemberDao {
 
 	private Map<String, Member> members = new HashMap<>();
 
-	public static final String RED = "Red";
-
-	public static final String GOLD = "Gold";
-
-	public static final String BLUE = "Blue";
-
-	public static final String GREEN = "Green";
-
-	public MemberManagement() {
+	public FakeMemberDao() {
 	}
 
+	/* (non-Javadoc)
+	 * @see com.tddair.MemberDao#createMember(java.lang.String, int, java.lang.String)
+	 */
+	@Override
 	public void createMember(String name, int id, String emailId) {
 		if (findMember(name) == null) {
 			if (!emailId.contains("@")){
@@ -31,8 +27,14 @@ public class MemberManagement {
 			throw new RuntimeException("Duplicate Member");
 	}
 
+	/* (non-Javadoc)
+	 * @see com.tddair.MemberDao#findMember(java.lang.String)
+	 */
+	@Override
 	public Member findMember(String name) {
 		return members.get(name);
 	}
+
+
 
 }

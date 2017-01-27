@@ -8,7 +8,7 @@ import org.junit.Test;
 
 public class ValidateNewMember {
 
-	MemberManagement mm = new MemberManagement();
+	MemberDao mm = new FakeMemberDao();
 
 	@Before
 	public void setup() {

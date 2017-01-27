@@ -16,25 +16,34 @@ public class Member {
 	private String emailId;
 	private int ytdMiles;
 	private int balanceMiles;
+	private int seatUpgradeBalance;
+	private Status status;
+
+	public int getSeatUpgradeBalance() {
+		return seatUpgradeBalance;
+	}
+
+	public void setSeatUpgradeBalance(int seatUpgradeBalance) {
+		this.seatUpgradeBalance = seatUpgradeBalance;
+	}
 
 	public Member(String name, int id, String emailId) {
 		super();
 		this.name = name;
 		this.id = id;
 		this.emailId = emailId;
+		status = Status.RED;
 		ytdMiles = 0;
 		setBalanceMiles(10000);
+		seatUpgradeBalance = 0;
 	}
 
-	public Object getStatus() {
-		String status = MemberManagement.RED;
-		if (ytdMiles > 75000) 
-			status = MemberManagement.GOLD;
-		else if (ytdMiles > 50000)
-			status = MemberManagement.BLUE;
-		else if (ytdMiles > 25000)
-			status = MemberManagement.GREEN;
+	public Status getStatus() {
 		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
 	}
 
 	public void setYtdMiles(int ytdMiles) {
@@ -52,6 +61,30 @@ public class Member {
 
 	public void setBalanceMiles(int balanceMiles) {
 		this.balanceMiles = balanceMiles;
+	}
+
+	public void completeFlight(Flight flight) {
+		ytdMiles += flight.getMileage();
+		balanceMiles += flight.getMileage();
+		status = Status.calculateStatus(ytdMiles);
+	}
+
+	public void purchaseSeatUpgrade(int qty) {
+		Status.getSeatUpgradeMilesCost();
+		
+		
+		switch (status) {
+		
+		case RED:
+			if (balanceMiles>=qty*10000) {
+				seatUpgradeBalance += qty;
+				balanceMiles -= qty*10000;
+			} else
+				throw new IllegalArgumentException("Insufficient Balance");				
+			break;	
+		}
+		
+		
 	}
 	
 	

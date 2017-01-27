@@ -8,12 +8,12 @@ import org.junit.Test;
 
 public class WhenRegisteringNewMember {
 
-	MemberManagement mm = null;
+	MemberDao mm = null;
 	Member member = null;
 
 	@Before
 	public void setup() {
-		mm = new MemberManagement();
+		mm = new FakeMemberDao();
 		mm.createMember("prakash", 6, "prakash.malluri@realpage.com");
 
 		member = mm.findMember("prakash");
@@ -27,7 +27,7 @@ public class WhenRegisteringNewMember {
 
 	@Test
 	public void testIfNewMemberHasRedStatus() {
-		assertEquals(MemberManagement.RED, member.getStatus());
+		assertEquals(Status.RED, member.getStatus());
 	}
 	
 	@Test
